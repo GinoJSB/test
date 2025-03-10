@@ -1,15 +1,15 @@
 package com.example.demo.model.DTO;
 
+import jakarta.annotation.Nullable;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
-import jakarta.annotation.Nullable;
 
+@Builder
 @Getter
 @Setter
-@Builder
-public class NoteReqDTO {
+public class    NoteReqDTO {
     @NotNull
     private String title;
     @Nullable

@@ -1,46 +1,45 @@
 package com.example.demo.controller;
-
 import com.example.demo.model.DTO.NoteReqDTO;
 import com.example.demo.model.DTO.NoteResponseDTO;
+import com.example.demo.model.Entity.Note;
 import com.example.demo.service.INoteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/notes")
 public class NoteController {
-    private final INoteService noteService;
 
-    public NoteController(INoteService noteService) {
-        this.noteService = noteService;
+    @Autowired
+    private INoteService notiServ;
+
+    @GetMapping("/notes")
+    public List<NoteResponseDTO> getNotas() {
+        return notiServ.getNotes();
     }
 
-    @GetMapping
-    public List<NoteResponseDTO> getNotes() {
-        return noteService.getNotes();
+    @PostMapping("/notes")
+    public String saveNotas(@RequestBody NoteReqDTO noteReqDTO) {
+        notiServ.saveNotes(noteReqDTO);
+        return "The note was created successfully";
     }
 
-    @PostMapping
-    public String saveNotes(@RequestBody NoteReqDTO noteReqDTO) {
-        noteService.saveNotes(noteReqDTO);
-        return "Note created successfully";
+    @DeleteMapping("/notes/{id}")
+    public String deleteNotas(@PathVariable Long id) {
+        notiServ.deleteNotes(id);
+        return "The note was deleted successfully";
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteNotes(@PathVariable Long id) {
-        noteService.deleteNotes(id);
-        return "Note deleted successfully";
+    @PutMapping("/notes/{id}")
+    public NoteResponseDTO updateNotas(@PathVariable Long id, @RequestBody NoteReqDTO noteReqDTO) {
+        return notiServ.updateNote(id, noteReqDTO);
     }
 
-    @PutMapping("/{id}")
-    public NoteResponseDTO updateNote(@PathVariable Long id, @RequestBody NoteReqDTO noteReqDTO) {
-        return noteService.updateNote(id, noteReqDTO);
-    }
+    @PutMapping("/notes/archived/{id}")
+    public String archiveNotas(@PathVariable Long id, @RequestParam(required = true) boolean archived) {
+        notiServ.archiveNotes(id, archived);
+        return archived ? "The note was archived successfully" : "The note was unarchived successfully";
 
-    @PutMapping("/archived/{id}")
-    public String archiveNotes(@PathVariable Long id, @RequestParam boolean archived) {
-        noteService.archiveNotes(id, archived);
-        return archived ? "Note archived successfully" : "Note unarchived successfully";
     }
 }
+

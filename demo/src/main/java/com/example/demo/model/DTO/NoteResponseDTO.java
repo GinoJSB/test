@@ -4,9 +4,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
+@Builder
 @Getter
 @Setter
-@Builder
 public class NoteResponseDTO {
     private Long id;
     private String title;

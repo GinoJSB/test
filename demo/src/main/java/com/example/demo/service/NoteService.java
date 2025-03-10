@@ -31,7 +31,6 @@ public class NoteService implements INoteService {
 
     @Override
     public void saveNotes(NoteReqDTO dto) {
-        // Obtenemos la categoría correspondiente al ID enviado en el DTO
         Category category = categoryService.findAllById(List.of(dto.getCategoryId())).get(0);
         Note note = new Note();
         note = noteMapper.updateNoteReqDTOToNote(dto, note);
