@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.DTO.CategoryResponseDTO;
-import com.example.demo.services.category.ICategoryService;
+import com.example.demo.service.category.ICategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

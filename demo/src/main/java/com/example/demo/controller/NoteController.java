@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.DTO.NoteReqDTO;
 import com.example.demo.model.DTO.NoteResponseDTO;
-import com.example.demo.services.INoteService;
+import com.example.demo.service.INoteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
