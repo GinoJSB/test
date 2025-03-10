@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Note {
     @Id
@@ -20,4 +19,15 @@ public class Note {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public Note() {
+    }
+
+    public Note(Long id, String titulo, String contenido, boolean archived) {
+        this.id = id;
+        this.title = titulo;
+        this.content = contenido;
+        this.archived = archived;
+    }
 }
+
