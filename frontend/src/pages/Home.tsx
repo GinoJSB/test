@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <div className="page-container">
       <div className="form-wrapper">
-        <h1 className="main-title">Crear Nueva Nota</h1>
+        <h1 className="main-title">Create New Note</h1>
         <NoteForm onNoteAdded={() => window.location.reload()} />
       </div>
     </div>

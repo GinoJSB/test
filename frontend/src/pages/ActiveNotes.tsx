@@ -14,7 +14,7 @@ const ActiveNotes: React.FC = () => {
 
   return (
     <div className="page-container">
-      <h1 className="main-title">Notas Activas</h1>
+      <h1 className="main-title">Active Notes</h1>
       <NoteList notes={notes} refreshNotes={refreshNotes} />
     </div>
   );

@@ -35,11 +35,11 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
   return (
     <form className="note-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="title">Título:</label>
+        <label htmlFor="title">Tittle:</label>
         <input
           id="title"
           type="text"
-          placeholder="Escribe un título"
+          placeholder="write the title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
@@ -47,10 +47,10 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="content">Contenido:</label>
+        <label htmlFor="content">Content:</label>
         <textarea
           id="content"
-          placeholder="Escribe tu nota aquí"
+          placeholder="Write your note here"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={4}
@@ -58,7 +58,7 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="category">Categoría:</label>
+        <label htmlFor="category">Category:</label>
         <select
           id="category"
           value={categoryId}
@@ -73,7 +73,7 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
       </div>
 
       <button type="submit" className="submit-button">
-        Crear Nota
+        Create Note
       </button>
     </form>
   );

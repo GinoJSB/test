@@ -9,8 +9,8 @@ const App: React.FC = () => {
     <Router>
       <nav className="main-nav">
         <Link to="/">Home</Link>
-        <Link to="/active">Notas Activas</Link>
-        <Link to="/archived">Notas Archivadas</Link>
+        <Link to="/active">Active notes</Link>
+        <Link to="/archived">Archived Notes</Link>
       </nav>
 
       <Routes>

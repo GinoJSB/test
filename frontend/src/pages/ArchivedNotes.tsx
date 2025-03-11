@@ -22,7 +22,7 @@ const ArchivedNotes: React.FC = () => {
 
   return (
     <div className="page-container">
-      <h1 className="main-title">Notas Archivadas</h1>
+      <h1 className="main-title">Archived Notes</h1>
       <ArchivedNoteList 
         notes={notes} 
         refreshNotes={refreshNotes}
