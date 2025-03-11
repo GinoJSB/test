@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Note } from '../models/Note';
 import DeleteNoteButton from './DeleteNoteButton';
-import ArchivedNoteButton from './ArchivedNoteButton.tsx';
+import UnarchiveNoteButton from './UnarchiveNoteButton';
 import EditNoteForm from './EditNoteForm';
 
-interface NoteListProps {
+interface ArchivedNoteListProps {
   notes: Note[];
   refreshNotes: () => void;
 }
 
-const NoteList: React.FC<NoteListProps> = ({ notes, refreshNotes }) => {
+const ArchivedNoteList: React.FC<ArchivedNoteListProps> = ({ notes, refreshNotes }) => {
   const [editingNoteId, setEditingNoteId] = useState<number | null>(null);
 
   const handleEditClick = (id: number) => setEditingNoteId(id);
-
   const handleNoteUpdated = () => {
     setEditingNoteId(null);
     refreshNotes();
@@ -22,7 +21,7 @@ const NoteList: React.FC<NoteListProps> = ({ notes, refreshNotes }) => {
   return (
     <div className="notes-grid">
       {notes.map((note) => (
-        <div className="note-card" key={note.id}>
+        <div className="note-card archived" key={note.id}>
           {editingNoteId === note.id ? (
             <EditNoteForm noteId={note.id} onNoteUpdated={handleNoteUpdated} />
           ) : (
@@ -35,11 +34,7 @@ const NoteList: React.FC<NoteListProps> = ({ notes, refreshNotes }) => {
                   Editar
                 </button>
                 <DeleteNoteButton noteId={note.id} onDeleted={refreshNotes} />
-                <ArchivedNoteButton
-                  noteId={note.id}
-                  archived={note.archived}
-                  onArchived={refreshNotes}
-                />
+                <UnarchiveNoteButton noteId={note.id} onUnarchived={refreshNotes} />
               </div>
             </>
           )}
@@ -49,4 +44,4 @@ const NoteList: React.FC<NoteListProps> = ({ notes, refreshNotes }) => {
   );
 };
 
-export default NoteList;
+export default ArchivedNoteList;

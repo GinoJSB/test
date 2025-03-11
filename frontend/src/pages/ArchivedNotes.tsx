@@ -10,7 +10,7 @@ const ArchivedNotes: React.FC = () => {
     try {
       const data = await getArchivedNotes();
       setNotes(data);
-      console.log("Notas actualizadas:", data); // Verificar en consola
+      console.log("Notas actualizadas:", data);
     } catch (error) {
       console.error("Error cargando notas:", error);
     }
@@ -25,7 +25,7 @@ const ArchivedNotes: React.FC = () => {
       <h1 className="main-title">Notas Archivadas</h1>
       <ArchivedNoteList 
         notes={notes} 
-        refreshNotes={refreshNotes} // Pasamos la función actualizada
+        refreshNotes={refreshNotes}
       />
     </div>
   );
