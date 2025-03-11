@@ -31,6 +31,7 @@ public class NoteService implements INoteService {
 
     @Override
     public void saveNotes(NoteReqDTO dto) {
+
         Category category = categoryService.findAllById(List.of(dto.getCategoryId())).get(0);
         Note note = new Note();
         note = noteMapper.updateNoteReqDTOToNote(dto, note);
