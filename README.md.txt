@@ -20,11 +20,14 @@ vite 6.2.1
 1.Clone App
   git clone git@github.com:hirelens-challenges/sanchezbeltran-  487e52.git
 
+2.cd demo 
+  mvn spring-boot:run
+ 
 
 2.Run the Application
   Open the init.sh file
 
 3.That's all!
   You can test the app by going to http://localhost:5173/
-http://localhost:5173/
+
 
