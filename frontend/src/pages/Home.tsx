@@ -1,11 +1,11 @@
-import React from 'react';
-import NoteForm from '../components/NoteForm';
+import React from "react";
+import NoteForm from "../components/NoteForm";
 
 const Home: React.FC = () => {
   return (
-    <div className="page-container">
-      <div className="form-wrapper">
-        <h1 className="main-title">Create New Note</h1>
+    <div className="container mt-4">
+      <div className="card p-4 shadow">
+        <h1 className="text-center mb-4">Create New Note</h1>
         <NoteForm onNoteAdded={() => window.location.reload()} />
       </div>
     </div>

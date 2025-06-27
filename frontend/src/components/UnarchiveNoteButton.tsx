@@ -1,5 +1,5 @@
-import React from 'react';
-import { archiveNote } from '../services/noteService';
+import React from "react";
+import { archiveNote } from "../services/noteService";
 
 interface Props {
   noteId: number;
@@ -17,10 +17,7 @@ const UnarchiveNoteButton: React.FC<Props> = ({ noteId, onUnarchived }) => {
   };
 
   return (
-    <button 
-      className="btn-unarchive"
-      onClick={handleUnarchive}
-    >
+    <button className="btn btn-success" onClick={handleUnarchive}>
       Desarchivar
     </button>
   );

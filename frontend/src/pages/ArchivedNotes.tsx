@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Note } from '../models/Note';
-import { getArchivedNotes } from '../services/noteService';
-import ArchivedNoteList from '../components/ArchivedNoteList';
+import React, { useState, useEffect } from "react";
+import { Note } from "../models/Note";
+import { getArchivedNotes } from "../services/noteService";
+import ArchivedNoteList from "../components/ArchivedNoteList";
 
 const ArchivedNotes: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -16,17 +16,14 @@ const ArchivedNotes: React.FC = () => {
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     refreshNotes();
   }, []);
 
   return (
-    <div className="page-container">
-      <h1 className="main-title">Archived Notes</h1>
-      <ArchivedNoteList 
-        notes={notes} 
-        refreshNotes={refreshNotes}
-      />
+    <div className="container mt-4">
+      <h1 className="text-center mb-4">Archived Notes</h1>
+      <ArchivedNoteList notes={notes} refreshNotes={refreshNotes} />
     </div>
   );
 };

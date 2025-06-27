@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { NoteReqDTO } from '../models/Note';
-import { saveNote } from '../services/noteService';
-import { getCategories } from '../services/categoryServices';
-import { Category } from '../models/category';
+import React, { useState, useEffect } from "react";
+import { NoteReqDTO } from "../models/Note";
+import { saveNote } from "../services/noteService";
+import { getCategories } from "../services/categoryServices";
+import { Category } from "../models/category";
 
 const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [categoryId, setCategoryId] = useState<number>(1);
   const [categories, setCategories] = useState<Category[]>([]);
 
@@ -28,28 +28,34 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
     };
     await saveNote(newNote);
     onNoteAdded();
-    setTitle('');
-    setContent('');
+    setTitle("");
+    setContent("");
   };
 
   return (
     <form className="note-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="title">Tittle:</label>
+      <div className="mb-3">
+        <label htmlFor="title" className="form-label">
+          Title:
+        </label>
         <input
           id="title"
           type="text"
-          placeholder="write the title"
+          className="form-control"
+          placeholder="Write the title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="content">Content:</label>
+      <div className="mb-3">
+        <label htmlFor="content" className="form-label">
+          Content:
+        </label>
         <textarea
           id="content"
+          className="form-control"
           placeholder="Write your note here"
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -57,10 +63,13 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="category">Category:</label>
+      <div className="mb-3">
+        <label htmlFor="category" className="form-label">
+          Category:
+        </label>
         <select
           id="category"
+          className="form-select"
           value={categoryId}
           onChange={(e) => setCategoryId(Number(e.target.value))}
         >
@@ -72,7 +81,7 @@ const NoteForm: React.FC<{ onNoteAdded: () => void }> = ({ onNoteAdded }) => {
         </select>
       </div>
 
-      <button type="submit" className="submit-button">
+      <button type="submit" className="btn btn-success w-100">
         Create Note
       </button>
     </form>
