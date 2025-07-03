@@ -9,9 +9,12 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    console.log(username, password);
     try {
       const token = await login(username, password);
       localStorage.setItem("token", token);
+      console.log("Token guardado:", localStorage.getItem("token"));
       navigate("/");
     } catch (error) {
       alert("Invalid credentials");

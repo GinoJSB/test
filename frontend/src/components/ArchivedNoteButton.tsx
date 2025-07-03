@@ -1,5 +1,5 @@
-import React from 'react';
-import { archiveNote } from '../services/noteService';
+import React from "react";
+import { archiveNote } from "../services/noteService";
 
 interface ArchivedNoteButtonProps {
   noteId: number;
@@ -7,15 +7,19 @@ interface ArchivedNoteButtonProps {
   onArchived: () => void;
 }
 
-const ArchivedNoteButton: React.FC<ArchivedNoteButtonProps> = ({ noteId, archived, onArchived }) => {
+const ArchivedNoteButton: React.FC<ArchivedNoteButtonProps> = ({
+  noteId,
+  archived,
+  onArchived,
+}) => {
   const handleArchive = async () => {
     await archiveNote(noteId, true);
     onArchived();
   };
 
   return (
-    <button onClick={handleArchive}>
-      {archived ? 'Unarchive' : 'Archive'}
+    <button onClick={handleArchive} className="btn btn-warning">
+      {archived ? "Unarchive" : "Archive"}
     </button>
   );
 };
